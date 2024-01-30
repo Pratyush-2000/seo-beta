@@ -33,6 +33,8 @@ export default function RootLayout({
         }}
     />
     {(typeof window != 'undefined' && !(window as any).mixpanel && <Script
+        id="mixpanel-analytics-init"
+        type={"text/javascript"}
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
