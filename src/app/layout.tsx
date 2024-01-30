@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import {useEffect} from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,6 +16,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  useEffect(() => {
+    (window as any).clarity("set", "subdomain", "beta")
+  }, []);
+
+
   return (
     <html lang="en">
     <Script
@@ -27,8 +34,6 @@ export default function RootLayout({
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "ktwufsl0q9");
-    
-    clarity("set", "subdomain", "beta")
     `
         }}
     />
